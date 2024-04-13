@@ -1,18 +1,20 @@
 package com.bennyhuo.kotlin.coroutine.ch01
 
 import kotlin.concurrent.thread
-
-fun main() {
+fun log(msg: String) {
+    println("[${Thread.currentThread().name}] $msg")
+}
+fun main(args: Array<String>) {
     val callback = {
-        println("D")
+        log("D")
     }
 
     val task = {
-        println("C")
+        log("C")
         callback()
     }
 
-    println("A")
+    log("A")
     thread(block = task)
-    println("B")
+    log("B")
 }

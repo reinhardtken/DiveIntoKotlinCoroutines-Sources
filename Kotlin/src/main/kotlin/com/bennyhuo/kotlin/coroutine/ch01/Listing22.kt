@@ -3,7 +3,7 @@ package com.bennyhuo.kotlin.coroutine.ch01
 import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 
-fun main() {
+fun main(args: Array<String>) {
     Observable.just("https://www.bennyhuo.com/assets/avatar.jpg")
         .map { download(it) }
         .subscribeOn(Schedulers.io())

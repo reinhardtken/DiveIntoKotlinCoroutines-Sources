@@ -5,15 +5,17 @@ import android.os.Looper
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
-
-fun main() {
+//fun log(msg: String) {
+//    println("[${Thread.currentThread().name}] $msg")
+//}
+fun main(args: Array<String>) {
     loopMain {
         runOnIOThread {
-            println("A")
+            log("A")
             delay(1000) {
-                println("B")
+                log("B")
                 runOnMainThread {
-                    println("C")
+                    log("C")
                 }
             }
         }
